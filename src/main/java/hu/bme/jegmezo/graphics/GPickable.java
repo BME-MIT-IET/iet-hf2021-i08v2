@@ -2,7 +2,6 @@ package hu.bme.jegmezo.graphics;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 

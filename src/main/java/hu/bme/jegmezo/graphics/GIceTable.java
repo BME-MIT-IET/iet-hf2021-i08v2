@@ -74,10 +74,10 @@ public class GIceTable implements IDrawable {
      */
     public GPickable checkItemPickup() {
         if(item != null && !iceTable.containsItem()) {
-            GPickable item = this.item;
+            GPickable pickalbeItem = this.item;
             this.item = null;
-            if (item.isUseableItem())
-                return item;
+            if (pickalbeItem.isUseableItem())
+                return pickalbeItem;
         }
         return null;
     }

@@ -12,7 +12,9 @@ import java.util.function.Consumer;
  */
 public class KeyEventHandler implements KeyListener {
 
-	enum State {COMMAND, DIRECTION_PARAMERTER, NUMBER_PARAMETER,SET_DIRECTION}
+	enum State {
+		COMMAND, DIRECTION_PARAMERTER, NUMBER_PARAMETER, SET_DIRECTION
+	}
 
 	Consumer<Integer> simpleReference = null;
 	State currentState = State.COMMAND;
@@ -20,7 +22,8 @@ public class KeyEventHandler implements KeyListener {
 	Direction dir;
 
 	/**
-	 * A KeyListener interész egyik implementáladnó metódusa. A programban nem használjuk, ezért üres a függvény.
+	 * A KeyListener interész egyik implementáladnó metódusa. A programban nem
+	 * használjuk, ezért üres a függvény.
 	 *
 	 * @param c az esemény paramétereit tartalmazza
 	 */
@@ -29,12 +32,14 @@ public class KeyEventHandler implements KeyListener {
 	}
 
 	/**
-	 * A KeyListener interész egyik implementáladnó metódusa. A programban nem használjuk, ezért üres a függvény.
+	 * A KeyListener interész egyik implementáladnó metódusa. A programban nem
+	 * használjuk, ezért üres a függvény.
 	 *
 	 * @param e az esemény paramétereit tartalmazza
 	 */
 	@Override
 	public void keyTyped(KeyEvent e) {
+		// Itt nem implementált.
 	}
 
 	/**
@@ -67,7 +72,7 @@ public class KeyEventHandler implements KeyListener {
 
 				case KeyEvent.VK_4:
 					simpleReference = Controller::setDirection;
-					currentState=State.SET_DIRECTION;
+					currentState = State.SET_DIRECTION;
 					return;
 
 				case KeyEvent.VK_5:
@@ -115,28 +120,26 @@ public class KeyEventHandler implements KeyListener {
 		switch (e.getKeyCode()) {
 			case KeyEvent.VK_UP:
 				return 0;
-
 			case KeyEvent.VK_RIGHT:
 				return 1;
-
 			case KeyEvent.VK_DOWN:
 				return 2;
-
 			case KeyEvent.VK_LEFT:
 				return 3;
+			default:
+				return -1;
 		}
-		return -1;
 	}
 
 	/**
-	 * A KeyListener interész egyik implementáladnó metódusa. A programban nem használjuk, ezért üres a függvény.
+	 * A KeyListener interész egyik implementáladnó metódusa. A programban nem
+	 * használjuk, ezért üres a függvény.
 	 *
 	 * @param e az esemény paramétereit tartalmazza
 	 */
 	@Override
 	public void keyReleased(KeyEvent e) {
-
+		// Itt nem implementált.
 	}
-
 
 }

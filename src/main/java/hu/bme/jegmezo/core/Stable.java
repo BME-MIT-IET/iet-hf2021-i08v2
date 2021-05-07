@@ -1,37 +1,41 @@
 package hu.bme.jegmezo.core;
 
 /**
- * A stabil jégtáblák reprezentálására. Ezekbe hu.bme.jegmezo.core.Pickable-ek lehetnek befagyva, állhat rajta
- * szereplő és boríthatja hó.
+ * A stabil jégtáblák reprezentálására. Ezekbe hu.bme.jegmezo.core.Pickable-ek
+ * lehetnek befagyva, állhat rajta szereplő és boríthatja hó.
  */
 public class Stable extends IceTable {
 
     /**
-	 * hu.bme.jegmezo.core.Stable osztály konstruktora
-	 * @param p a táblán található tárgy (lehet null)
-	 */
-    public Stable(Pickable p){
+     * hu.bme.jegmezo.core.Stable osztály konstruktora
+     * 
+     * @param p a táblán található tárgy (lehet null)
+     */
+    public Stable(Pickable p) {
         super(p);
     }
 
     /**
-	 * Paraméterül kap egy karaktert, amit eltárol a characters
-     * listában. Ezután minden karakteren meghívja az invadeOtherCharacters() függvényt.
-	 * @param c táblára lépő karakter
-	 */
+     * Paraméterül kap egy karaktert, amit eltárol a characters listában. Ezután
+     * minden karakteren meghívja az invadeOtherCharacters() függvényt.
+     * 
+     * @param c táblára lépő karakter
+     */
     @Override
     public void stepOn(Character c) {
         characters.add(c);
-        for (Character character: characters) {
+        for (Character character : characters) {
             character.invadeOtherCharacters();
         }
     }
 
     /**
      * Stabil esetben nem csinál semmit a metódus.
+     * 
      * @param t jégtábla, amire kimentett karaktereket helyezi
      */
     @Override
     public void removeCharacters(IceTable t) {
+        // Stabil esetben nem csinál semmit a metódus.
     }
 }

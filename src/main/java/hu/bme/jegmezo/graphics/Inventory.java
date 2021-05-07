@@ -8,15 +8,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * A karakterekhez tartozó használati tárgyak nézeteit tároló és
- * kirajzoló osztály.
+ * A karakterekhez tartozó használati tárgyak nézeteit tároló és kirajzoló
+ * osztály.
  */
 public class Inventory implements IDrawable {
-    private ArrayList<GPickable> items = new ArrayList<GPickable>();
+    private ArrayList<GPickable> items = new ArrayList<>();
     private BufferedImage icon;
 
     /**
      * Konstruktor, ami beállítja az inventorihoz tartozó ikont.
+     * 
      * @param iconName
      */
     public Inventory(String iconName) {
@@ -30,6 +31,7 @@ public class Inventory implements IDrawable {
 
     /**
      * Kirajzolja magát a paraméterben átadott helyre.
+     * 
      * @param g Az objektum, amire kirajzolja magát.
      * @param x x szerinti pozíció.
      * @param y y szerinti pozíció.
@@ -42,7 +44,7 @@ public class Inventory implements IDrawable {
 
         g.setColor(Color.BLACK);
         int posX = x + 64;
-        for (GPickable img: items) {
+        for (GPickable img : items) {
             g.drawRect(posX, y, 64, 64);
             img.draw(g, posX, y);
             posX += 64;
@@ -51,6 +53,7 @@ public class Inventory implements IDrawable {
 
     /**
      * A tárgyhoz tartozó nézet hozzáadása az inventorihoz.
+     * 
      * @param item A tárgyhoz tartozó nézet.
      */
     public void addItem(GPickable item) {

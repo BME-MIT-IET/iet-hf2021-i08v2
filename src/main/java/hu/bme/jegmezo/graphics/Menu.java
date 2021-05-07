@@ -15,20 +15,21 @@ public class Menu {
 
 	/**
 	 * Konstruktor, ami beállítja a menüt.
+	 * 
 	 * @param window A menühoz tartozó ablak.
 	 */
 	Menu(Window window) {
-		//JPanelok létrehozása
+		// JPanelok létrehozása
 		topPanel = new JPanel();
 		topPanel.setOpaque(false);
 		centerPanel = new JPanel();
 		centerPanel.setOpaque(false);
 		bottomPanel = new JPanel();
 		bottomPanel.setOpaque(false);
-		JPanel panel_center_down = new JPanel();
-		panel_center_down.setOpaque(false);
+		JPanel panelCenterDown = new JPanel();
+		panelCenterDown.setOpaque(false);
 
-		//Felső rész beállítása
+		// Felső rész beállítása
 		JLabel eskimoLabel = new JLabel("Eskimo number:");
 		JLabel researcherLabel = new JLabel("Researcher number:");
 		JTextField eskimoTextBox = new JTextField(10);
@@ -40,7 +41,7 @@ public class Menu {
 		topPanel.add(researcherLabel, BorderLayout.EAST);
 		topPanel.add(researcherTextBox, BorderLayout.EAST);
 
-		//Középső rész beállítása (Új játék indítása)
+		// Középső rész beállítása (Új játék indítása)
 		JButton newGameButton = new JButton("New Game");
 		newGameButton.addActionListener(e -> {
 			int eskimoNum = 0;
@@ -48,19 +49,22 @@ public class Menu {
 			try {
 				eskimoNum = Integer.parseInt(eskimoTextBox.getText());
 				researcherNum = Integer.parseInt(researcherTextBox.getText());
-			} catch(Exception ex) { }
+			} catch (Exception ex) {
+				// Hiba történt.
+			}
 
 			if (eskimoNum + researcherNum > 1) {
 				Game.getInstance().setupGame(eskimoNum, researcherNum);
 				new Thread(window).start();
 			} else {
-				JOptionPane.showMessageDialog(window, "Add meg az eszkimók és sarkkutatók számát!", "Error", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(window, "Add meg az eszkimók és sarkkutatók számát!", "Error",
+						JOptionPane.WARNING_MESSAGE);
 			}
 		});
 
 		centerPanel.setLayout(new FlowLayout());
 		centerPanel.add(newGameButton);
-		//Alsó rész beállítása (Kilépés gomb)
+		// Alsó rész beállítása (Kilépés gomb)
 		JButton exitButton = new JButton("Exit");
 		exitButton.addActionListener(e -> System.exit(0));
 

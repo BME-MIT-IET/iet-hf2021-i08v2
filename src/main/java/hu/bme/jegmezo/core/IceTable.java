@@ -156,7 +156,7 @@ public abstract class IceTable {
      * 
      * @return karakterek, akik nincsenek igluban
      */
-    public ArrayList<Character> getInvadableCharacters() {
+    public List<Character> getInvadableCharacters() {
         if (iglu) {
             return null;
         }

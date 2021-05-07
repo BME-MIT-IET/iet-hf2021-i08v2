@@ -20,6 +20,9 @@ public class Direction {
      * @return irényok megegyeznek-e
      */
     public boolean equals(Object d){
+        if (d == null){
+            return false;
+        }
         return ((Direction)d).getName() == this.name;
     }
 

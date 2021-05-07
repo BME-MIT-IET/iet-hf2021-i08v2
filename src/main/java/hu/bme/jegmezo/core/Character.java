@@ -2,6 +2,8 @@ package hu.bme.jegmezo.core;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 /**
  * Absztrakt osztály. A felhasználó által irányított szereplőket reprezentáló osztály (pl. eszkimó,
  * sarkkutató). Felelősségei többek közt a mozgás, munkavégzés.
@@ -42,14 +44,14 @@ public abstract class Character {
 	/**
 	 * A szereplő által birtokolt tárgyak.
 	 */
-	private ArrayList<Usable> usables = new ArrayList<Usable>();
+	private ArrayList<Usable> usables = new ArrayList<>();
 
 	/**
 	 * A karakter osztály konstruktora.
 	 *
 	 * @param i Erre a jégtáblára lépteti a szereplőt.
 	 */
-	public Character(IceTable i) {
+	protected Character(IceTable i) {
 		iceTable = i;
 		i.stepOn(this);
 		usables.add(signalRocket);
@@ -73,7 +75,7 @@ public abstract class Character {
 	 */
 	public void useUsable(int idx, Direction d) {
 		if (idx > usables.size() - 1) {
-			System.out.println("Nincs ilyen indexű tárgy a Karakternél!");
+			JOptionPane.showMessageDialog(null, "Nincs ilyen indexű tárgy a Karakternél!");
 			return;
 		}
 		usables.get(idx).use(this, d);

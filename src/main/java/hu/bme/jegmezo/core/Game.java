@@ -24,7 +24,6 @@ public class Game {
     private Character currCharacter;
     private GameState gameState = GameState.RUNNING;
     private View view;
-    private Controller controller=new Controller();
 
     /**
      * Privát konstruktor a Singleton-pattern megvalósításához.
@@ -94,7 +93,7 @@ public class Game {
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        Thread.currentThread().interrupt();
                     }
                     currCharacter.move(new Direction(1));
                 }

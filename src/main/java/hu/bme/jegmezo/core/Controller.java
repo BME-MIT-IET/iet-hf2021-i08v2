@@ -8,7 +8,6 @@ public class Controller {
 	private static  Game game=Game.getInstance();
 	private static Direction direction=new Direction(0);
 
-	private Controller(){}
 	/**
 	 * A soron lévő játékos karakterének jelzi, hogy használja a képességét.
 	 * @param d az irány száma

@@ -1,12 +1,14 @@
 package hu.bme.jegmezo.core;
 
 /**
- * A sarkkutatót reprezentáló osztály.
- * Különleges képessége, hogy meg tudja nézni, hogy mennyi a táblák kapacitása.
+ * A sarkkutatót reprezentáló osztály. Különleges képessége, hogy meg tudja
+ * nézni, hogy mennyi a táblák kapacitása.
  */
 public class Researcher extends Character {
     /**
-     * A hu.bme.jegmezo.core.Researcher osztály konstruktora. Meghívja a hu.bme.jegmezo.core.Character ősosztály konstruktorát.
+     * A hu.bme.jegmezo.core.Researcher osztály konstruktora. Meghívja a
+     * hu.bme.jegmezo.core.Character ősosztály konstruktorát.
+     * 
      * @param i Erre a jégtáblára lépteti a szereplőt.
      */
     public Researcher(IceTable i) {
@@ -17,9 +19,9 @@ public class Researcher extends Character {
     }
 
     /**
-     * A sarkkutató speciális képességéhez tartozó függvény.
-     * Ha a paraméterben kapott jégtábla szomszédos,
-     * akkor lekérdezi annak kapacitását és visszaadja.
+     * A sarkkutató speciális képességéhez tartozó függvény. Ha a paraméterben
+     * kapott jégtábla szomszédos, akkor lekérdezi annak kapacitását és visszaadja.
+     * 
      * @param t A jégtábla.
      * @return A jégtábla kapacitása.
      */
@@ -34,9 +36,10 @@ public class Researcher extends Character {
     }
 
     /**
-     * Ez a függvény üresen kerül definiálásra az sarkkutató
-     * részéről.
+     * Ez a függvény üresen kerül definiálásra az sarkkutató részéről.
      */
     @Override
-    public void invadeOtherCharacters() { }
+    public void invadeOtherCharacters() {
+        // Ez a függvény üresen kerül definiálásra az sarkkutató részéről.
+    }
 }

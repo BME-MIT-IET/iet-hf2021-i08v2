@@ -8,13 +8,13 @@ import java.util.ArrayList;
 /**
  * A játék állapota.
  */
-enum GameState{
-    RUNNING,WIN,LOSE
+enum GameState {
+    RUNNING, WIN, LOSE
 }
 
 /**
- * Felelős azért, hogy a játékosok egymás után határozott sorrendben tudják elvégezni a köreiket
- * és a hóvihar ütemezéséért.
+ * Felelős azért, hogy a játékosok egymás után határozott sorrendben tudják
+ * elvégezni a köreiket és a hóvihar ütemezéséért.
  */
 
 public class Game {
@@ -24,15 +24,17 @@ public class Game {
     private Character currCharacter;
     private GameState gameState = GameState.RUNNING;
     private View view;
-    private Controller controller=new Controller();
+    private Controller controller = new Controller();
 
     /**
      * Privát konstruktor a Singleton-pattern megvalósításához.
      */
-    private Game() { }
+    private Game() {
+    }
 
     /**
-     * Visszaadja az egyetlen hu.bme.jegmezo.core.Game példányt, Singleton-pattern megvalósításához szükséges.
+     * Visszaadja az egyetlen hu.bme.jegmezo.core.Game példányt, Singleton-pattern
+     * megvalósításához szükséges.
      *
      * @return hu.bme.jegmezo.core.Game példány.
      */
@@ -42,6 +44,7 @@ public class Game {
 
     /**
      * Egy karakter hozzáadása a characters listához.
+     * 
      * @param c hozzáadandó karakter
      */
     public void addCharacter(Character c) {
@@ -49,12 +52,12 @@ public class Game {
     }
 
     /**
-     * A szereplő meghalása vagy a játék megnyerése esetén
-     * hívandó metódus.
+     * A szereplő meghalása vagy a játék megnyerése esetén hívandó metódus.
+     * 
      * @param win Győzelem állapota
      */
     public void endGame(boolean win) {
-       gameState = win?GameState.WIN:GameState.LOSE;
+        gameState = win ? GameState.WIN : GameState.LOSE;
     }
 
     /**
@@ -76,7 +79,7 @@ public class Game {
      * Elindítja a játékosok köreit váltogató ciklust.
      */
     public void runGame() {
-        if(characters.size() < 3) {
+        if (characters.size() < 3) {
             return;
         }
         gameState = GameState.RUNNING;
@@ -84,7 +87,7 @@ public class Game {
 
         while (gameState == GameState.RUNNING) {
             Character c = currCharacter;
-            if(!c.isDiver() && c.getInWater()) {
+            if (!c.isDiver() && c.getInWater()) {
                 endGame(false);
                 break;
             }
@@ -107,8 +110,8 @@ public class Game {
     }
 
     /**
-     * A játék alaphelyzetbe állítása: játékosok törlése, jégmező és a játék állapotának
-     * visszaállítása.
+     * A játék alaphelyzetbe állítása: játékosok törlése, jégmező és a játék
+     * állapotának visszaállítása.
      */
     public void reset() {
         characters.clear();
@@ -119,15 +122,18 @@ public class Game {
 
     /**
      * A jelenlegi, azaz az éppen soron lévő játékos lekérdezése.
+     * 
      * @return A soron lévő játékos.
      */
-    public Character getCurrCharacter(){
-        return  currCharacter;
+    public Character getCurrCharacter() {
+        return currCharacter;
     }
 
     /**
-     * A játék kiinduási helyzetbe állítása a paraméterként megadott számú játékossal.
-     * @param eskimo Az eszkimók száma.
+     * A játék kiinduási helyzetbe állítása a paraméterként megadott számú
+     * játékossal.
+     * 
+     * @param eskimo     Az eszkimók száma.
      * @param researcher A sarkkutatók száma.
      */
     public void setupGame(int eskimo, int researcher) {
@@ -138,6 +144,7 @@ public class Game {
 
     /**
      * A játékot megjelenítő panel lekérdezése.
+     * 
      * @return játék panel
      */
     public JPanel getPanel() {
@@ -146,9 +153,10 @@ public class Game {
 
     /**
      * Üzenet kiírása az ablakra.
+     * 
      * @param msg Üzenet szövege.
      */
-    public void printMessage(String msg){
+    public void printMessage(String msg) {
         view.showDialog(msg);
     }
 }

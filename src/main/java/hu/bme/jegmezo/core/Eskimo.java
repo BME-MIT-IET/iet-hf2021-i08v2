@@ -37,5 +37,7 @@ public class Eskimo extends Character {
      * részéről.
      */
     @Override
-    public void invadeOtherCharacters() { }
+    public void invadeOtherCharacters() {
+        // Ez a függvény üresen kerül definiálásra az eszkimó részéről.
+     }
 }

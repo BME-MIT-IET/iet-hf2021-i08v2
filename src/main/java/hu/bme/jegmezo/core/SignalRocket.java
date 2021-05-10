@@ -41,7 +41,7 @@ public class SignalRocket implements Usable {
      */
     @Override
     public void use(Character c, Direction d) {
-        IceTable i = c.getIceTable();
+        var i = c.getIceTable();
         int characterNumber = i.getCharactersNumber();
         int totalCharactersNumber = game.getPlayersNumber();
 

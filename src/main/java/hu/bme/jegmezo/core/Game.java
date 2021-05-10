@@ -20,7 +20,7 @@ enum GameState {
 public class Game {
     private static Game instance = new Game();
     private IceField iceField;
-    private ArrayList<Character> characters = new ArrayList<Character>();
+    private ArrayList<Character> characters = new ArrayList<>();
     private Character currCharacter;
     private GameState gameState = GameState.RUNNING;
     private View view;
@@ -85,7 +85,7 @@ public class Game {
         currCharacter = characters.get(0);
 
         while (gameState == GameState.RUNNING) {
-            Character c = currCharacter;
+            var c = currCharacter;
             if (!c.isDiver() && c.getInWater()) {
                 endGame(false);
                 break;

@@ -2,14 +2,16 @@ package hu.bme.jegmezo.core;
 
 import hu.bme.jegmezo.Main;
 
+import java.security.SecureRandom;
 import java.util.List;
-import java.util.Random;
 
 /**
  * A jegesmedvét reprezentáló osztály. Összesen egy darab van belőle.
  * Felelőssége a mozgás véletlenszerű irányba és a többi játékos elkapása.
  */
 public class PolarBear extends Character {
+
+    private SecureRandom random;
 
     /**
      * A hu.bme.jegmezo.core.PolarBear osztály konstruktora.
@@ -18,6 +20,7 @@ public class PolarBear extends Character {
      */
     public PolarBear(IceTable i) {
         super(i);
+        random = new SecureRandom();
         workUnit = 1;
         initialWorkUnit = 1;
         bodyTemperature = 0;
@@ -84,7 +87,7 @@ public class PolarBear extends Character {
     @Override
     public void move(Direction d) {
         if (!Main.det)
-            d = new Direction(new Random().nextInt(4));
+            d = new Direction(random.nextInt(4));
         super.move(d);
     }
 

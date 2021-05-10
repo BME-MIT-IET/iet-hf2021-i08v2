@@ -27,7 +27,7 @@ public class View extends JPanel {
      * @return A tárgy és a hozzá tartozó nézet.
      */
     private List<Object> getRandomPickable() {
-        int rand = new Random().nextInt(10);
+        var rand = r.nextInt(10);
         switch (rand) {
             case 0:
                 return Arrays.asList(new DivingSuit(), new GPickable("divingsuite.png", false));
@@ -60,12 +60,12 @@ public class View extends JPanel {
                 return new GHole(new Hole());
 
             case 1:
-                Unstable unstable = new Unstable((Pickable) pickables.get(0));
+                var unstable = new Unstable((Pickable) pickables.get(0));
                 unstable.setCapacity(r.nextInt(charactersNumber - 2) + 2);
                 return new GNormalTable(unstable, (GPickable) pickables.get(1));
 
             default:
-                Stable stable = new Stable((Pickable) pickables.get(0));
+                var stable = new Stable((Pickable) pickables.get(0));
                 stable.setCapacity(charactersNumber + 1);
                 return new GNormalTable(stable, (GPickable) pickables.get(1));
 
@@ -73,11 +73,11 @@ public class View extends JPanel {
     }
 
     public void initMap(int row, int column, int eskimo, int researcher, HashSet<Integer> signalRocketPartPlace) {
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
+        for (var i = 0; i < row; i++) {
+            for (var j = 0; j < column; j++) {
                 if (i == 0 && j == 0)
                     continue;
-                GIceTable gIceTable = getRandomIceTable(eskimo + researcher + 1);
+                var gIceTable = getRandomIceTable(eskimo + researcher + 1);
                 if (signalRocketPartPlace.contains(i * column + j)) {
                     gIceTable = new GNormalTable(new Stable(new SignalRocketPart()),
                             new GPickable("signalrocketpart.png", false));
@@ -114,10 +114,10 @@ public class View extends JPanel {
         // A játékosok legenerálása és ráhelyezése a pálya első mezőjére.
         List<Object> pickables = getRandomPickable();
         matrix[0][0] = new GNormalTable(new Stable((Pickable) pickables.get(0)), (GPickable) pickables.get(1));
-        for (int i = 0; i < eskimo; i++) {
+        for (var i = 0; i < eskimo; i++) {
             characters.add(new GEskimo(new Eskimo(matrix[0][0].getIceTable())));
         }
-        for (int i = 0; i < researcher; i++) {
+        for (var i = 0; i < researcher; i++) {
             characters.add(new GResearcher(new Researcher(matrix[0][0].getIceTable())));
         }
         // A jegesmedve elhelyezése
@@ -125,10 +125,10 @@ public class View extends JPanel {
                 new GPolarBear(new PolarBear(matrix[r.nextInt(row - 1) + 1][r.nextInt(column - 1) + 1].getIceTable())));
 
         // A szomszédsági viszonyok létrehozása a jégtáblák között.
-        IceField iceField = new IceField();
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                IceTable it = matrix[i][j].getIceTable();
+        var iceField = new IceField();
+        for (var i = 0; i < row; i++) {
+            for (var j = 0; j < column; j++) {
+                var it = matrix[i][j].getIceTable();
                 it.setNeighbour(matrix[(i - 1 + row) % row][j].getIceTable(), new Direction(0));
                 it.setNeighbour(matrix[(i + 1) % row][j].getIceTable(), new Direction(2));
                 it.setNeighbour(matrix[i][(j - 1 + column) % column].getIceTable(), new Direction(3));
@@ -162,7 +162,7 @@ public class View extends JPanel {
         }
         repaint();
 
-        Object syncObject = new Object();
+        var syncObject = new Object();
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -194,7 +194,7 @@ public class View extends JPanel {
             g.setColor(Color.black);
             g.setFont(new Font("Consolas", Font.BOLD, 26));
 
-            FontMetrics fm = g.getFontMetrics();
+            var fm = g.getFontMetrics();
             Rectangle2D rect = fm.getStringBounds(msg, g);
 
             y = ((getHeight() - (int) rect.getHeight()) / 3 + fm.getAscent());
@@ -240,8 +240,8 @@ public class View extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
 
-        int startX = 0;
-        int startY = 80;
+        var startX = 0;
+        var startY = 80;
 
         innerPaint(g, startX, startY);
 
@@ -253,8 +253,8 @@ public class View extends JPanel {
     }
 
     public void innerPaint(Graphics g, int startX, int startY) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
+        for (var i = 0; i < matrix.length; i++) {
+            for (var j = 0; j < matrix[i].length; j++) {
                 GPickable gp = matrix[i][j].checkItemPickup();
                 matrix[i][j].draw(g, startX + 128 * j, startY + 128 * i);
                 for (GCharacter gc : characters) {
@@ -269,7 +269,7 @@ public class View extends JPanel {
     }
 
     public void drawCharacters(Graphics g, int startX, int startY) {
-        int id = 1;
+        var id = 1;
         for (GCharacter gc : characters) {
             if (gc.getCharacter() == Game.getInstance().getCurrCharacter()) {
                 gc.drawInventory(g, startX, startY - 80, id);

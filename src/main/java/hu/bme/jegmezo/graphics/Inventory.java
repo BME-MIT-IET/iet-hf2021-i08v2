@@ -22,10 +22,10 @@ public class Inventory implements IDrawable {
      */
     public Inventory(String iconName) {
         try {
-            File imageFile = new File("src/main/resources/images/" + iconName);
+            var imageFile = new File("src/main/resources/images/" + iconName);
             this.icon = ImageIO.read(imageFile);
         } catch (IOException e) {
-            e.printStackTrace();
+            // Semmi se történik itt.
         }
     }
 

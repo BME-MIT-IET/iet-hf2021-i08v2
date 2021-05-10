@@ -20,8 +20,9 @@ public class GIceTable implements IDrawable {
     private BufferedImage tentImg;
 
     /**
-     * Konstruktor, ami beállítja a jégtáblát, a benne lévő tárgy nézetét, és a jégtábla különböző
-     * állapotaihoz tartozó képeket.
+     * Konstruktor, ami beállítja a jégtáblát, a benne lévő tárgy nézetét, és a
+     * jégtábla különböző állapotaihoz tartozó képeket.
+     * 
      * @param iceTable
      * @param item
      */
@@ -29,19 +30,21 @@ public class GIceTable implements IDrawable {
         this.iceTable = iceTable;
         this.item = item;
         try {
-            File imageFile = new File("src/main/resources/images/snow.png");
+            var imageFile = new File("src/main/resources/images/snow.png");
             snowImg = ImageIO.read(imageFile);
             imageFile = new File("src/main/resources/images/iglu.png");
             igluImg = ImageIO.read(imageFile);
             imageFile = new File("src/main/resources/images/tent.png");
             tentImg = ImageIO.read(imageFile);
         } catch (IOException e) {
-            e.printStackTrace();
+            // Semmi se történik itt.
         }
     }
 
     /**
-     * Kirajzolja magát a paraméterben megadott helyre, a jégtábla állapotának megfelelően.
+     * Kirajzolja magát a paraméterben megadott helyre, a jégtábla állapotának
+     * megfelelően.
+     * 
      * @param g Az objektum, amire kirajzolja magát.
      * @param x x szerinti pozíció.
      * @param y y szerinti pozíció.
@@ -49,18 +52,19 @@ public class GIceTable implements IDrawable {
     @Override
     public void draw(Graphics g, int x, int y) {
         g.drawImage(iceTableImg, x, y, null);
-        if(item != null)
+        if (item != null)
             item.draw(g, x, y + 64);
-        if(iceTable.anySnow())
+        if (iceTable.anySnow())
             g.drawImage(snowImg, x, y, null);
-        if(iceTable.getIgluState())
+        if (iceTable.getIgluState())
             g.drawImage(igluImg, x + 64, y, null);
-        if(iceTable.getTentState())
+        if (iceTable.getTentState())
             g.drawImage(tentImg, x + 64, y + 64, null);
     }
 
     /**
      * A nézethez tartozó jégtábla lekérdezése.
+     * 
      * @return A nézethez tartozó jégtábla.
      */
     public IceTable getIceTable() {
@@ -68,12 +72,14 @@ public class GIceTable implements IDrawable {
     }
 
     /**
-     * Ellenőrzi, hogy a jégtáblából kivették-e a tárgyat. Ha igen és hu.bme.jegmezo.core.Usable típusú,
-     * akkor visszatér a tárgyhoz tartozó nézettel.
+     * Ellenőrzi, hogy a jégtáblából kivették-e a tárgyat. Ha igen és
+     * hu.bme.jegmezo.core.Usable típusú, akkor visszatér a tárgyhoz tartozó
+     * nézettel.
+     * 
      * @return A tárgyhoz tartozó nézet.
      */
     public GPickable checkItemPickup() {
-        if(item != null && !iceTable.containsItem()) {
+        if (item != null && !iceTable.containsItem()) {
             GPickable pickalbeItem = this.item;
             this.item = null;
             if (pickalbeItem.isUseableItem())

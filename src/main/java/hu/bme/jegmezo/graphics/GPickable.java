@@ -8,28 +8,31 @@ import java.io.IOException;
 /**
  * A felvehető tárgyak kirajzolásához tartozó osztály.
  */
-public class GPickable implements IDrawable{
+public class GPickable implements IDrawable {
     private Image img;
     private boolean useableItem;
 
     /**
-     * Konstruktor, ami a paraméternek megfelelően beállítja az osztályhoz tartozó képet, és
-     * azt, hogy hu.bme.jegmezo.core.Usable típusúak, vagyis, hogy el kell-e őket tárolni az inventoriban.
+     * Konstruktor, ami a paraméternek megfelelően beállítja az osztályhoz tartozó
+     * képet, és azt, hogy hu.bme.jegmezo.core.Usable típusúak, vagyis, hogy el
+     * kell-e őket tárolni az inventoriban.
+     * 
      * @param imageName
      * @param useableItem
      */
     public GPickable(String imageName, boolean useableItem) {
         try {
-            File imageFile = new File("src/main/resources/images/" + imageName);
+            var imageFile = new File("src/main/resources/images/" + imageName);
             img = ImageIO.read(imageFile);
         } catch (IOException e) {
-            e.printStackTrace();
+            // Semmi se történik itt.
         }
         this.useableItem = useableItem;
     }
 
     /**
      * Kirajzolja magát a paraméterben átadott helyre.
+     * 
      * @param g Az objektum, amire kirajzolja magát.
      * @param x x szerinti pozíció.
      * @param y y szerinti pozíció.
@@ -41,6 +44,7 @@ public class GPickable implements IDrawable{
 
     /**
      * Visszaadja azt, hogy a tárgy inventoriban eltárolandó vagy sem.
+     * 
      * @return Inventoriban eltárolandó-e?
      */
     public boolean isUseableItem() {

@@ -83,6 +83,7 @@ Sok helyen az alkalmazáson belül nem lehet Negative Test-et végrehajtani azon
 - Ha a játék vége előtt még kiadunk például egy mozgás parancsot akkor a következő játék elején csak mozogni fogunk tudni az első lépésünkkel.
 - A főmenü enged negatív számú játékost megadni (bizonyos körülmények között).
 - Mikor már negyedik alkalommal próbáljuk használni a törékeny ásót, akkor a hóréteg nem csökken, viszont egy munka egységet ekkor is levont tőlünk a játék.
+- Az instabil jégtábla kapacitása lehet olyan nagy, hogy stabilként működjön. Ha {kapacitás=játékosok_száma+1}, akkor ugyan a jégtábla instabil, de ha az összes játékossal rá is állunk, akkor sem törik be kivéve, ha a jegesmedve is rálép. Ekkor viszont vége lenne a játéknak mert a medve megtámadja a játékosokat. Ezáltal funkcionálisan tekintve az instabil jégtábla stabilként is tud működni.
 
 ## Komoly bug-ok összefoglalása
 

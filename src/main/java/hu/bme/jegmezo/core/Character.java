@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- * Absztrakt osztály. A felhasználó által irányított szereplőket reprezentáló osztály (pl. eszkimó,
- * sarkkutató). Felelősségei többek közt a mozgás, munkavégzés.
+ * Absztrakt osztály. A felhasználó által irányított szereplőket reprezentáló
+ * osztály (pl. eszkimó, sarkkutató). Felelősségei többek közt a mozgás,
+ * munkavégzés.
  */
 public abstract class Character {
 	/**
@@ -59,8 +60,8 @@ public abstract class Character {
 	}
 
 	/**
-	 * Az eltárolandó tárgyak által hívott függvény, amely
-	 * felveszi usebles listába az adott Useble-t.
+	 * Az eltárolandó tárgyak által hívott függvény, amely felveszi usebles listába
+	 * az adott Useble-t.
 	 *
 	 * @param u Az eltárolandó tárgy.
 	 */
@@ -70,8 +71,9 @@ public abstract class Character {
 
 	/**
 	 * A usebles listának az adott indexű Useable-jét használja.
+	 * 
 	 * @param idx index
-	 * @param d irány
+	 * @param d   irány
 	 */
 	public void useUsable(int idx, Direction d) {
 		if (idx > usables.size() - 1) {
@@ -87,8 +89,8 @@ public abstract class Character {
 	}
 
 	/**
-	 * A testhő megváltozására használható metódus. A
-	 * paraméterben kapott számot adja testhőhöz.
+	 * A testhő megváltozására használható metódus. A paraméterben kapott számot
+	 * adja testhőhöz.
 	 *
 	 * @param diff A hozzáadandó testhő mértéke.
 	 */
@@ -99,8 +101,7 @@ public abstract class Character {
 	}
 
 	/**
-	 * A búvárruha felvételekor meghívandó metódus. A diver értéket
-	 * állítja true-ra.
+	 * A búvárruha felvételekor meghívandó metódus. A diver értéket állítja true-ra.
 	 */
 	public void makeDiver() {
 		diver = true;
@@ -117,8 +118,8 @@ public abstract class Character {
 	}
 
 	/**
-	 * Absztrakt függvény a karakter speciális képességének
-	 * használatára a paraméterben kapott táblán.
+	 * Absztrakt függvény a karakter speciális képességének használatára a
+	 * paraméterben kapott táblán.
 	 *
 	 * @param t A jégtábla.
 	 */
@@ -130,8 +131,9 @@ public abstract class Character {
 	 * @param d Az irány.
 	 */
 	public void move(Direction d) {
-		IceTable i = iceTable.getNeighbour(d);
-		if (i == null) return;
+		var i = iceTable.getNeighbour(d);
+		if (i == null)
+			return;
 
 		iceTable.stepOff(this);
 		iceTable = i;
@@ -201,8 +203,8 @@ public abstract class Character {
 	}
 
 	/**
-	 * A karakter elkap másik karaktereket a jégtáblán,
-	 * amin áll. Ezt az absztrakt függvényt csak a hu.bme.jegmezo.core.PolarBear fogja nem üresen
+	 * A karakter elkap másik karaktereket a jégtáblán, amin áll. Ezt az absztrakt
+	 * függvényt csak a hu.bme.jegmezo.core.PolarBear fogja nem üresen
 	 * megvalósítani.
 	 */
 	public abstract void invadeOtherCharacters();
@@ -218,8 +220,8 @@ public abstract class Character {
 	}
 
 	/**
-	 * Ez a függvény hívandó akkor, ha a játékos még nem fejezte be a körét
-	 * (tehát nem használta el a 4 munkaegységét). Meghívja a game tagváltozóján a
+	 * Ez a függvény hívandó akkor, ha a játékos még nem fejezte be a körét (tehát
+	 * nem használta el a 4 munkaegységét). Meghívja a game tagváltozóján a
 	 * nextPlayer() metódust, majd visszaállítja a workUnit-ját a kezdeti értékre.
 	 */
 	public void pass() {

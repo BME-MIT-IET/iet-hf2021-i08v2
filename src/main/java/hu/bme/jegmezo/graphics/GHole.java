@@ -19,7 +19,7 @@ public class GHole extends GIceTable {
     public GHole(Hole hole) {
         super(hole, null);
         try {
-            File imageFile = new File("src/main/resources/images/hole.png");
+            var imageFile = new File("src/main/resources/images/hole.png");
             iceTableImg = ImageIO.read(imageFile);
         } catch (IOException e) {
             // Semmi se történik itt.

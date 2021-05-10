@@ -21,7 +21,7 @@ public class GPolarBear extends GCharacter {
     public GPolarBear(PolarBear polarBear) {
         super(polarBear);
         try {
-            File imageFile = new File("src/main/resources/images/polarbear.png");
+            var imageFile = new File("src/main/resources/images/polarbear.png");
             img = ImageIO.read(imageFile);
         } catch (IOException e) {
             // Semmi se történik itt.

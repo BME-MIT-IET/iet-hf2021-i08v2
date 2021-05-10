@@ -22,7 +22,7 @@ public class GPickable implements IDrawable {
      */
     public GPickable(String imageName, boolean useableItem) {
         try {
-            File imageFile = new File("src/main/resources/images/" + imageName);
+            var imageFile = new File("src/main/resources/images/" + imageName);
             img = ImageIO.read(imageFile);
         } catch (IOException e) {
             // Semmi se történik itt.

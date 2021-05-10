@@ -26,14 +26,14 @@ public class Menu {
 		centerPanel.setOpaque(false);
 		bottomPanel = new JPanel();
 		bottomPanel.setOpaque(false);
-		JPanel panelCenterDown = new JPanel();
+		var panelCenterDown = new JPanel();
 		panelCenterDown.setOpaque(false);
 
 		// Felső rész beállítása
-		JLabel eskimoLabel = new JLabel("Eskimo number:");
-		JLabel researcherLabel = new JLabel("Researcher number:");
-		JTextField eskimoTextBox = new JTextField(10);
-		JTextField researcherTextBox = new JTextField(10);
+		var eskimoLabel = new JLabel("Eskimo number:");
+		var researcherLabel = new JLabel("Researcher number:");
+		var eskimoTextBox = new JTextField(10);
+		var researcherTextBox = new JTextField(10);
 
 		topPanel.setLayout(new FlowLayout());
 		topPanel.add(eskimoLabel, BorderLayout.WEST);
@@ -42,10 +42,10 @@ public class Menu {
 		topPanel.add(researcherTextBox, BorderLayout.EAST);
 
 		// Középső rész beállítása (Új játék indítása)
-		JButton newGameButton = new JButton("New Game");
+		var newGameButton = new JButton("New Game");
 		newGameButton.addActionListener(e -> {
-			int eskimoNum = 0;
-			int researcherNum = 0;
+			var eskimoNum = 0;
+			var researcherNum = 0;
 			try {
 				eskimoNum = Integer.parseInt(eskimoTextBox.getText());
 				researcherNum = Integer.parseInt(researcherTextBox.getText());
@@ -65,7 +65,7 @@ public class Menu {
 		centerPanel.setLayout(new FlowLayout());
 		centerPanel.add(newGameButton);
 		// Alsó rész beállítása (Kilépés gomb)
-		JButton exitButton = new JButton("Exit");
+		var exitButton = new JButton("Exit");
 		exitButton.addActionListener(e -> System.exit(0));
 
 		bottomPanel.setLayout(new FlowLayout());

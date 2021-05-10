@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class Window extends JFrame implements Runnable {
     private transient Menu menu;
-    private static final String ICEFIELD = "IceField";;
+    private static final String ICEFIELD = "IceField";
 
     /**
      * Konstruktor az ablak beállításához.

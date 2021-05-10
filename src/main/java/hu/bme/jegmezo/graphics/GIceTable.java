@@ -30,7 +30,7 @@ public class GIceTable implements IDrawable {
         this.iceTable = iceTable;
         this.item = item;
         try {
-            File imageFile = new File("src/main/resources/images/snow.png");
+            var imageFile = new File("src/main/resources/images/snow.png");
             snowImg = ImageIO.read(imageFile);
             imageFile = new File("src/main/resources/images/iglu.png");
             igluImg = ImageIO.read(imageFile);

@@ -20,7 +20,7 @@ public class GResearcher extends GCharacter {
     public GResearcher(Researcher researcher) {
         super(researcher);
         try {
-            File imageFile = new File("src/main/resources/images/researcher.png");
+            var imageFile = new File("src/main/resources/images/researcher.png");
             img = ImageIO.read(imageFile);
         } catch (IOException e) {
             // Semmi se történik itt.

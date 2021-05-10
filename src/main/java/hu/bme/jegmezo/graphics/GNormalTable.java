@@ -18,7 +18,7 @@ public class GNormalTable extends GIceTable {
     public GNormalTable(IceTable iceTable, GPickable item) {
         super(iceTable, item);
         try {
-            File imageFile = new File("src/main/resources/images/icetable.png");
+            var imageFile = new File("src/main/resources/images/icetable.png");
             iceTableImg = ImageIO.read(imageFile);
         } catch (IOException e) {
             // Semmi se történik itt.

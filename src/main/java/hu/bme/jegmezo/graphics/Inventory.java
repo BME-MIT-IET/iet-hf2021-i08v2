@@ -25,7 +25,7 @@ public class Inventory implements IDrawable {
             File imageFile = new File("src/main/resources/images/" + iconName);
             this.icon = ImageIO.read(imageFile);
         } catch (IOException e) {
-            e.printStackTrace();
+            // Semmi se történik itt.
         }
     }
 

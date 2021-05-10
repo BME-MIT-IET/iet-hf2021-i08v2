@@ -9,10 +9,11 @@ import java.io.IOException;
 /**
  * A hu.bme.jegmezo.graphics.GIceTable lyukhoz tartozó konkrét leszármazottja.
  */
-public class GHole extends GIceTable{
+public class GHole extends GIceTable {
 
     /**
      * Konstruktor, ami beállítja a jégtábla típusát és a hozzá tartozó képet.
+     * 
      * @param hole
      */
     public GHole(Hole hole) {
@@ -21,7 +22,7 @@ public class GHole extends GIceTable{
             File imageFile = new File("src/main/resources/images/hole.png");
             iceTableImg = ImageIO.read(imageFile);
         } catch (IOException e) {
-            e.printStackTrace();
+            // Semmi se történik itt.
         }
     }
 }

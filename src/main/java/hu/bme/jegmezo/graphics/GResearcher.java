@@ -7,11 +7,14 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * A hu.bme.jegmezo.graphics.GCharacter sarkkutatóhoz tartozó konkrét leszátmazottja.
+ * A hu.bme.jegmezo.graphics.GCharacter sarkkutatóhoz tartozó konkrét
+ * leszátmazottja.
  */
-public class GResearcher extends GCharacter{
+public class GResearcher extends GCharacter {
     /**
-     * Konstruktor, ami beállítja a karaktert, a hozzá tartozó képet és az inventorit.
+     * Konstruktor, ami beállítja a karaktert, a hozzá tartozó képet és az
+     * inventorit.
+     * 
      * @param researcher
      */
     public GResearcher(Researcher researcher) {
@@ -20,7 +23,7 @@ public class GResearcher extends GCharacter{
             File imageFile = new File("src/main/resources/images/researcher.png");
             img = ImageIO.read(imageFile);
         } catch (IOException e) {
-            e.printStackTrace();
+            // Semmi se történik itt.
         }
         inventory = new Inventory("researcher.png");
         inventory.addItem(new GPickable("signalrocket.png", true));

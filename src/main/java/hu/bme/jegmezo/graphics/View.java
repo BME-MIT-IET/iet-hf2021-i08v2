@@ -27,7 +27,7 @@ public class View extends JPanel {
      * @return A tárgy és a hozzá tartozó nézet.
      */
     private List<Object> getRandomPickable() {
-        int rand = new Random().nextInt(10);
+        int rand = r.nextInt(10);
         switch (rand) {
             case 0:
                 return Arrays.asList(new DivingSuit(), new GPickable("divingsuite.png", false));

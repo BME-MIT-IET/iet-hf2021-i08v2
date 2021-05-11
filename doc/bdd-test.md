@@ -3,7 +3,7 @@
 ## Elvégzett munka
 
 - A Cucumber szoftver használatához szükséges függőségek beimportálása.
-- BDD tesztek megtervezése és leimplementálása a szoftver viselkedésének ellenőrzésére. Ehhez a projekthez tartozó usecase diagramot vettem alapul, hogy a felhasználó szempontjából lényges viselkedésket vizsgáljam meg:
+- BDD tesztek megtervezése és leimplementálása a szoftver viselkedésének ellenőrzésére. Ehhez a projekthez tartozó usecase diagramot vettem alapul, hogy a felhasználó szempontjából lényeges viselkedésket vizsgáljam meg:
 
 ![](image/usecase.png)
 
